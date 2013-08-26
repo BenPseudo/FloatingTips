@@ -38,7 +38,7 @@ var FloatingTips = new Class({
 		discrete: false,
 		showDelay: 0,
 		hideDelay: 0,
-		className: 'floating-tip',
+		className: '',
 		offset: { x: 0, y: 0 },
 		fx: { 'duration': 'short' }
 	},
@@ -132,9 +132,9 @@ var FloatingTips = new Class({
 		}
 
 		var cnt = (typeof(oc) == 'string' ? elem.get(oc) : oc(elem));
-		var cwr = new Element('div').addClass(o.className).setStyle('margin', 0);
+		var cwr = new Element('div').addClass('floating-tip').addClass(o.className).setStyle('margin', 0);
 		var tip = new Element('div')
-			.addClass(o.className + '-wrapper')
+			.addClass('floating-tip-wrapper')
 			.addClass('position-' + this.options.position)
 			.setStyles({ 'margin': 0, 'padding': 0, 'z-index': cwr.getStyle('z-index') })
 			.adopt(cwr);
@@ -155,7 +155,7 @@ var FloatingTips = new Class({
 
 		if (o.balloon && !Browser.ie6) {
 
-			var trg = new Element('div').addClass(o.className + '-triangle').setStyles({ 'margin': 0, 'padding': 0 });
+			var trg = new Element('div').addClass('floating-tip-triangle').addClass(o.className + '-triangle').setStyles({ 'margin': 0, 'padding': 0 });
 			var trgSt = { 'border-color': cwr.getStyle('background-color'), 'border-width': o.arrowSize, 'border-style': 'solid','width': 0, 'height': 0 };
 
 			switch (opos) {
